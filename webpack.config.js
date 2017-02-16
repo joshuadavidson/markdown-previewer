@@ -1,6 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
 const path = require('path');
 
 // PLUGINS
@@ -34,16 +37,23 @@ const javascriptModuleRule = {
   },
 };
 
+// configuation options for postcss
+const postcssOptions = {
+  plugins() {
+    return [precss, autoprefixer];
+  },
+};
+
 // configuration rules for the processing of SCSS files
 const scssModuleRule = {
-  test: /\.scss$/,
+  test: /\.(scss|css)$/,
   exclude: /(node_modules)/,
   use: extractSassPluginConfig.extract({
     use: [
       { loader: 'css-loader' },
+      { loader: 'postcss-loader', options: postcssOptions },
       { loader: 'sass-loader' },
     ],
-    fallback: 'style-loader',
   }),
 };
 

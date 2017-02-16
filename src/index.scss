@@ -1,0 +1,7 @@
+// declare all variables before bootstrap import to override defaults
+// set asset helper to true to allow paths to bootstrap fonts to resolve when compiling
+$bootstrap-sass-asset-helper: true;
+
+@import '../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+
+// declare all custom styles after boostrap import to override defaults
