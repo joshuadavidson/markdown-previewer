@@ -32,7 +32,10 @@ const javascriptModuleRule = {
   use: {
     loader: 'babel-loader',
     options: {
-      presets: ['es2015', 'react'],
+      presets: [
+        ['es2015', { 'modules': false }],
+        'react',
+      ],
     },
   },
 };
