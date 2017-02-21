@@ -5046,3 +5046,11 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  margin: 10px 0 10px 0; }
+
+#output-area {
+  margin: 10px 0 10px 0; }
