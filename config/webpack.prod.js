@@ -11,6 +11,13 @@ const extractSassPluginConfig = new ExtractTextPlugin({
   filename: 'style.css',
 });
 
+// define env variable for React production build
+const DefinePlugin = new webpack.DefinePlugin({
+  'process.env': {
+    NODE_ENV: JSON.stringify('production'),
+  },
+});
+
 const UglifyJsPluginConfig = new webpack.optimize.UglifyJsPlugin();
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
@@ -71,6 +78,7 @@ module.exports = {
     rules: [javascriptModuleRule, scssModuleRule],
   },
   plugins: [
+    DefinePlugin,
     extractSassPluginConfig,
     UglifyJsPluginConfig,
     HtmlWebpackPluginConfig,
