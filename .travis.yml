@@ -3,7 +3,7 @@ node_js:
   - "6"
 cache:
   directories:
-    # cache the node_modules folder between builds 
+    # cache the node_modules folder between builds
     - node_modules
 install:
   # install dev dependencies for webpack build
@@ -21,7 +21,7 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   # Name of the S3 bucket
-  bucket: "fcc-leaderboard.jwaynedavidson.com"
+  bucket: $BUCKET_NAME
   # Path to a directory containing built site
   local_dir: dist
   # Set the Access Control List Permissions to Public read only
